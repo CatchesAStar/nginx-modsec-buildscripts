@@ -1,0 +1,15 @@
+Source: modsecurity
+Section: unknown
+Priority: optional
+Maintainer: root <star@catchesastar.net>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.4
+Homepage: https://github.com/SpiderLabs/ModSecurity
+#Vcs-Git: git://git.debian.org/collab-maint/modsecurity.git
+#Vcs-Browser: http://git.debian.org/?p=collab-maint/modsecurity.git;a=summary
+
+Package: modsecurity
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Modsecurity Libs
+ modsecurity libs

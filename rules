@@ -1,0 +1,26 @@
+#!/usr/bin/make -f
+# Debian rules file for xterm source package
+
+# Copyright 2005 David Martínez Moreno
+#
+# Licensed under the GNU General Public License, version 2.  See the file
+# /usr/share/common-licenses/GPL or <http://www.gnu.org/copyleft/gpl.txt>
+
+DEBTREEDIR:=$(CURDIR)/debian/tmp
+
+override_dh_auto_configure:
+	./autogen.sh
+	dh_auto_configure -- \
+		--prefix=/opt/modsecurity \
+		--enable-standalone-module \
+		--disable-mlogc
+
+override_dh_auto_install:
+	dh_auto_install --destdir=$(CURDIR)/debian/tmp
+	#$(MAKE) DESTDIR=$(CURDIR)/debian/tmp prefix=/opt/modsecurity install
+
+override_dh_install:
+	dh_install --fail-missing --sourcedir=$(CURDIR)/debian/tmp/
+
+%:
+	dh $@ 
